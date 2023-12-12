@@ -3,7 +3,6 @@ import {
   type RouteDefinition,
   type RouteSectionProps,
 } from "@solidjs/router";
-import { HttpHeader } from "@solidjs/start/shared/HttpHeader";
 import { For, Show } from "solid-js";
 import Story from "~/components/story";
 import { getStories } from "~/lib/api";
@@ -24,8 +23,6 @@ export default function Stories(props: RouteSectionProps) {
   const stories = createAsync(() => getStories(type(), page()));
 
   return (
-    <>
-    <HttpHeader name="Netlify-CDN-Cache-Control" value="max-age=15, stale-while-revalidate" />
     <div class="news-view">
       <div class="news-list-nav">
         <Show
@@ -70,6 +67,5 @@ export default function Stories(props: RouteSectionProps) {
         </Show>
       </main>
     </div>
-    </>
   );
 }
