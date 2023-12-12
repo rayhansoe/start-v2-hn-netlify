@@ -3,7 +3,7 @@ import {
   type RouteDefinition,
   type RouteSectionProps,
 } from "@solidjs/router";
-import { HttpHeader } from "@solidjs/start/.";
+import { HttpHeader } from "@solidjs/start/shared/HttpHeader";
 import { For, Show } from "solid-js";
 import Story from "~/components/story";
 import { getStories } from "~/lib/api";
