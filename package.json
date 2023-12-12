@@ -1,5 +1,5 @@
 {
-  "name": "start-v2-hn-netlify",
+  "name": "solid-hackernews",
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
@@ -10,7 +10,8 @@
     "@solidjs/router": "^0.10.1",
     "@solidjs/start": "^0.4.0-alpha.4",
     "solid-js": "^1.8.7",
-    "vinxi": "0.0.48"
+    "vinxi": "0.0.48",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18"

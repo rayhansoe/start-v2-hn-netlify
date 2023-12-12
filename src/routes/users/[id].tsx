@@ -1,15 +1,16 @@
-import {
-  createAsync,
-  type RouteDefinition,
-  type RouteSectionProps,
-} from "@solidjs/router";
+import { cache, createAsync, type RouteDefinition, type RouteSectionProps } from "@solidjs/router";
 import { Show } from "solid-js";
-import { getUser } from "~/lib/api";
+import fetchAPI from "~/lib/api";
+import { UserDefinition } from "~/types";
+
+export const getUser = cache(async (id: string): Promise<UserDefinition> => {
+  return fetchAPI(`user/${id}`);
+}, "user");
 
 export const route = {
   load({ params }) {
     void getUser(params.id);
-  },
+  }
 } satisfies RouteDefinition;
 
 export default function User(props: RouteSectionProps) {
@@ -31,16 +32,11 @@ export default function User(props: RouteSectionProps) {
             </Show>
           </ul>
           <p class="links">
-            <a href={`https://news.ycombinator.com/submitted?id=${user()!.id}`}>
-              submissions
-            </a>{" "}
-            |{" "}
-            <a href={`https://news.ycombinator.com/threads?id=${user()!.id}`}>
-              comments
-            </a>
+            <a href={`https://news.ycombinator.com/submitted?id=${user()!.id}`}>submissions</a> |{" "}
+            <a href={`https://news.ycombinator.com/threads?id=${user()!.id}`}>comments</a>
           </p>
         </Show>
       </Show>
     </div>
   );
-}
+};

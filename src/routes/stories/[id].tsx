@@ -1,11 +1,17 @@
 import {
+  cache,
   createAsync,
   type RouteDefinition,
   type RouteSectionProps,
 } from "@solidjs/router";
 import { For, Show } from "solid-js";
 import Comment from "~/components/comment";
-import { getStory } from "~/lib/api";
+import fetchAPI from "~/lib/api";
+import { StoryDefinition } from "~/types";
+
+const getStory = cache(async (id: string): Promise<StoryDefinition> => {
+  return fetchAPI(`item/${id}`);
+}, "story");
 
 export const route = {
   load({ params }) {
