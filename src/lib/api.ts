@@ -45,6 +45,8 @@ export const getStories = cache(
 
     const event = getRequestEvent()! as FetchEvent
     setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+    setHeader(event, "Netlify-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+    setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
 
     return fetchAPI(`${mapStories[type]}?page=${page}`);
   },
@@ -56,6 +58,8 @@ export const getStory = cache(async (id: string): Promise<StoryDefinition> => {
 
   const event = getRequestEvent()! as FetchEvent
   setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Netlify-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
 
   return fetchAPI(`item/${id}`);
 }, "story");
@@ -65,6 +69,8 @@ export const getUser = cache(async (id: string): Promise<UserDefinition> => {
 
   const event = getRequestEvent()! as FetchEvent
   setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Netlify-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
 
   return fetchAPI(`user/${id}`);
 }, "user");
