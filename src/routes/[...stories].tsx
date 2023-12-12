@@ -1,28 +1,12 @@
 import {
   createAsync,
   type RouteDefinition,
-  cache,
   type RouteSectionProps,
 } from "@solidjs/router";
 import { For, Show } from "solid-js";
-import fetchAPI from "~/lib/api";
 import Story from "~/components/story";
-import type { StoryDefinition, StoryTypes } from "~/types";
-
-const mapStories = {
-  top: "news",
-  new: "newest",
-  show: "show",
-  ask: "ask",
-  job: "jobs",
-} as const;
-
-const getStories = cache(
-  async (type: StoryTypes, page: number): Promise<StoryDefinition[]> => {
-    return fetchAPI(`${mapStories[type]}?page=${page}`);
-  },
-  "stories"
-);
+import { getStories } from "~/lib/api";
+import { StoryTypes } from "~/types";
 
 export const route = {
   load({ location, params }) {
@@ -37,6 +21,7 @@ export default function Stories(props: RouteSectionProps) {
   const page = () => +props.location.query.page || 1;
   const type = () => (props.params.stories || "top") as StoryTypes;
   const stories = createAsync(() => getStories(type(), page()));
+
   return (
     <div class="news-view">
       <div class="news-list-nav">
@@ -58,7 +43,7 @@ export default function Stories(props: RouteSectionProps) {
         </Show>
         <span>page {page()}</span>
         <Show
-          when={stories() && stories().length >= 29}
+          when={stories() && stories()!.length >= 29}
           fallback={
             <span class="page-link disabled" aria-disabled="true">
               more {">"}
