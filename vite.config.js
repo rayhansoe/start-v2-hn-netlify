@@ -4,11 +4,8 @@ export default defineConfig({
   start: {
     server: {
       preset: "vercel",
-      routeRules: {
-        '/**': { swr: 0 }
-      },
       prerender: {
-        routes: ["/user/**"]
+        crawlLinks: true
       }
     }
   }
