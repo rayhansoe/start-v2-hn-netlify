@@ -4,18 +4,13 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  '@solidjs/start@0.4.0-alpha.5':
-    hash: innrzu2myuk4vape3nvzuevxmi
-    path: patches/@solidjs__start@0.4.0-alpha.5.patch
-
 dependencies:
   '@solidjs/router':
     specifier: ^0.10.2
     version: 0.10.2(solid-js@1.8.7)
   '@solidjs/start':
     specifier: 0.4.0-alpha.5
-    version: 0.4.0-alpha.5(patch_hash=innrzu2myuk4vape3nvzuevxmi)(solid-js@1.8.7)(vinxi@0.0.48)(vite@5.0.8)
+    version: 0.4.0-alpha.5(solid-js@1.8.7)(vinxi@0.0.48)(vite@5.0.8)
   solid-js:
     specifier: ^1.8.7
     version: 1.8.7
@@ -1268,7 +1263,7 @@ packages:
       solid-js: 1.8.7
     dev: false
 
-  /@solidjs/start@0.4.0-alpha.5(patch_hash=innrzu2myuk4vape3nvzuevxmi)(solid-js@1.8.7)(vinxi@0.0.48)(vite@5.0.8):
+  /@solidjs/start@0.4.0-alpha.5(solid-js@1.8.7)(vinxi@0.0.48)(vite@5.0.8):
     resolution: {integrity: sha512-P45TnfZeb/IKH8xMRp3fBAreztXxzjslWidvNHvmzXjSvbQlbq3iGMsV72p2n59Xccvsq4qXqFnI6q0l/t5vKw==}
     dependencies:
       '@vinxi/plugin-directives': 0.0.44(vinxi@0.0.48)
@@ -1286,7 +1281,6 @@ packages:
       - vinxi
       - vite
     dev: false
-    patched: true
 
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}

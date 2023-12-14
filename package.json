@@ -15,10 +15,5 @@
   },
   "engines": {
     "node": ">=18"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@solidjs/start@0.4.0-alpha.5": "patches/@solidjs__start@0.4.0-alpha.5.patch"
-    }
   }
 }
