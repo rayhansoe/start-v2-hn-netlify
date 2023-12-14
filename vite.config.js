@@ -6,6 +6,9 @@ export default defineConfig({
       preset: "vercel",
       routeRules: {
         '/**': { swr: 0 }
+      },
+      prerender: {
+        routes: ["/user/**"]
       }
     }
   }
