@@ -7,7 +7,7 @@
     "start": "node ./.output/server/index.mjs"
   },
   "dependencies": {
-    "@solidjs/router": "^0.10.1",
+    "@solidjs/router": "^0.10.2",
     "@solidjs/start": "0.4.0-alpha.5",
     "solid-js": "^1.8.7",
     "typescript": "^5.3.3",
@@ -15,5 +15,10 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@solidjs/start@0.4.0-alpha.5": "patches/@solidjs__start@0.4.0-alpha.5.patch"
+    }
   }
 }
