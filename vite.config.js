@@ -5,7 +5,7 @@ export default defineConfig({
     server: {
       preset: "vercel",
       routeRules: {
-        '/about': { swr: 60 },
+        '/about': { prerender: true },
       },
       prerender: {
         routes: ["/about"]
