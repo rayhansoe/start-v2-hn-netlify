@@ -5,8 +5,10 @@ export default defineConfig({
     server: {
       preset: "vercel",
       routeRules: {
-        '/about': { cache: { isr: true, maxAge: 15 } },
-        '/about': { headers: { 'cache-control': 'max-age=15, stale-while-revalidate', } },
+        '/about': { isr: true },
+      },
+      prerender: {
+        routes: ["/about"]
       }
     },
   }
