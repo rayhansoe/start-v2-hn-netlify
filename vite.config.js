@@ -6,9 +6,7 @@ export default defineConfig({
       preset: "vercel",
       routeRules: {
         '/about': {
-          cache: {
-            maxAge: 60 * 2
-          }
+          cache: { swr: true, maxAge: 60 * 2 }
         },
       },
       prerender: {
