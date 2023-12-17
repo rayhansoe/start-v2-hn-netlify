@@ -60,10 +60,6 @@ export const getStory = cache(async (id: string): Promise<StoryDefinition> => {
   setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
   setHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
   setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-  setHeader(event, 'Content-Location', 'https://start-v2-hn-netlify.vercel.app/_server')
-  setHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
-  setHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
-  setResponseStatus(event, 201)
 
   return fetchAPI(`item/${id}`);
 }, "story");
