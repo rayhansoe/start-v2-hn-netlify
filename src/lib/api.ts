@@ -2,7 +2,7 @@ import { cache } from "@solidjs/router";
 import { getFetchEvent } from "@solidjs/start/server/middleware";
 import { FetchEvent } from "@solidjs/start/server/types";
 import { getRequestEvent } from "solid-js/web";
-import { setResponseHeader, setResponseStatus } from "vinxi/server";
+import { setHeader, setResponseStatus } from "vinxi/server";
 import { StoryDefinition, StoryTypes, UserDefinition } from "~/types";
 
 const story = (path: string) => `https://node-hnapi.herokuapp.com/${path}`;
@@ -44,9 +44,9 @@ export const getStories = cache(
     "use server";
 
     const event = getRequestEvent()! as FetchEvent
-    setResponseHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
-    setResponseHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-    setResponseHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+    setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+    setHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+    setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
 
     return fetchAPI(`${mapStories[type]}?page=${page}`);
   },
@@ -57,12 +57,12 @@ export const getStory = cache(async (id: string): Promise<StoryDefinition> => {
   "use server";
 
   const event = getRequestEvent()! as FetchEvent
-  setResponseHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
-  setResponseHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-  setResponseHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-  setResponseHeader(event, 'Content-Location', 'https://start-v2-hn-netlify.vercel.app/_server')
-  setResponseHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
-  setResponseHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
+  setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, 'Content-Location', 'https://start-v2-hn-netlify.vercel.app/_server')
+  setHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
+  setHeader(event, 'Location', 'https://start-v2-hn-netlify.vercel.app/_server')
   setResponseStatus(event, 201)
 
   return fetchAPI(`item/${id}`);
@@ -72,9 +72,9 @@ export const getUser = cache(async (id: string): Promise<UserDefinition> => {
   "use server";
 
   const event = getRequestEvent()! as FetchEvent
-  setResponseHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
-  setResponseHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-  setResponseHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
 
   return fetchAPI(`user/${id}`);
 }, "user");
