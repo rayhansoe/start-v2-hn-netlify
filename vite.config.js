@@ -5,12 +5,8 @@ export default defineConfig({
     server: {
       preset: "vercel",
       routeRules: {
-        '/about': { static: true },
-        '/about': { headers: {
-          'Cache-Control': 'max-age=age=31536, stale-while-revalidate',
-          'CDN-Cache-Control': 'max-age=age=31536, stale-while-revalidate',
-          'Vercel-CDN-Cache-Control': 'max-age=age=31536, stale-while-revalidate',
-        } },
+        '/about': { cache: { isr: true, maxAge: 15 } },
+        '/about': { headers: { 'cache-control': 'max-age=15, stale-while-revalidate', } },
       }
     },
   }
