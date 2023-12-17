@@ -3,13 +3,12 @@ import { defineConfig } from "@solidjs/start/config";
 export default defineConfig({
   start: {
     server: {
-      preset: "vercel",
       routeRules: {
-        '/**': { swr: 0 }
+        '/about': { swr: 120 },
       },
       prerender: {
-        crawlLinks: true
+        routes: ["/about"]
       }
-    }
+    },
   }
 });

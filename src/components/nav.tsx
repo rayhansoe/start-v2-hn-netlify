@@ -8,6 +8,9 @@ export default function Nav() {
         <a href="/new">
           <strong $ServerOnly>New</strong>
         </a>
+        <a href="/about">
+          <strong $ServerOnly>About</strong>
+        </a>
         <a href="/show">
           <strong $ServerOnly>Show</strong>
         </a>

@@ -9,7 +9,7 @@ const story = (path: string) => `https://node-hnapi.herokuapp.com/${path}`;
 const user = (path: string) =>
   `https://hacker-news.firebaseio.com/v0/${path}.json`;
 
-async function fetchAPI(path: string) {
+export async function fetchAPI(path: string) {
   const url = path.startsWith("user") ? user(path) : story(path);
   const headers: Record<string, string> = { "User-Agent": "chrome" };
 
@@ -31,7 +31,7 @@ async function fetchAPI(path: string) {
   }
 }
 
-const mapStories = {
+export const mapStories = {
   top: "news",
   new: "newest",
   show: "show",
