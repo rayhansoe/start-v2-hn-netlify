@@ -27,6 +27,7 @@ export default function Page() {
 		<div>
 			<h1>About</h1>
 			<p>Hello World</p>
+			<p>timestamp: {timestamp()}</p>
 			<h2>
 				<strong>Build at </strong>
 				{d.toUTCString()}
