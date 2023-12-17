@@ -8,9 +8,9 @@ const getData = cache((): Promise<number> => {
 
   const event = getRequestEvent()! as FetchEvent
 	
-  setHeader(event, "Cache-Control", "max-age=15, stale-while-revalidate")
-  setHeader(event, "Vercel-CDN-Cache-Control", "max-age=15, stale-while-revalidate")
-  setHeader(event, "CDN-Cache-Control", "max-age=15, stale-while-revalidate")
+  setHeader(event, "Cache-Control", "max-age=31536, stale-while-revalidate")
+  setHeader(event, "Vercel-CDN-Cache-Control", "max-age=31536, stale-while-revalidate")
+  setHeader(event, "CDN-Cache-Control", "max-age=31536, stale-while-revalidate")
 	return new Promise((resolve) => setTimeout(() => resolve(Date.now()), 100));
 }, "");
 export const route = {
